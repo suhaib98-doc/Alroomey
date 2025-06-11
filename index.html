@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asnanak Tatakallam | اسنانك تتكلم</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">اسنانك تتكلم</div>
+      <ul>
+        <li><a href="#home" data-en="Home" data-ar="الرئيسية">Home</a></li>
+        <li><a href="#info" data-en="Dental Info" data-ar="معلومات الأسنان">Dental Info</a></li>
+        <li><a href="#contact" data-en="Contact" data-ar="تواصل معنا">Contact</a></li>
+        <li><button id="langToggle">عربي</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <h1 data-en="Welcome to Asnanak Tatakallam" data-ar="مرحباً بكم في اسنانك تتكلم">Welcome to Asnanak Tatakallam</h1>
+    <p data-en="Your trusted source for dental knowledge" data-ar="مصدر موثوق لمعلومات صحة الفم والأسنان">
+      Your trusted source for dental knowledge
+    </p>
+  </section>
+
+  <section id="info" class="content">
+    <h2 data-en="Dental Hygiene Tips" data-ar="نصائح نظافة الأسنان">Dental Hygiene Tips</h2>
+    <ul>
+      <li data-en="Brush your teeth twice a day" data-ar="فرّش أسنانك مرتين يومياً">Brush your teeth twice a day</li>
+      <li data-en="Floss daily" data-ar="استخدم الخيط الطبي يومياً">Floss daily</li>
+      <li data-en="Visit your dentist every 6 months" data-ar="قم بزيارة طبيب الأسنان كل 6 أشهر">Visit your dentist every 6 months</li>
+    </ul>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2 data-en="Contact Us" data-ar="تواصل معنا">Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Name / الاسم" required />
+      <input type="email" placeholder="Email / البريد الإلكتروني" required />
+      <textarea placeholder="Message / رسالتك"></textarea>
+      <button type="submit" data-en="Send" data-ar="إرسال">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 اسنانك تتكلم | Asnanak Tatakallam</p>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('langToggle');
+    let lang = 'en';
+    toggle.addEventListener('click', () => {
+      lang = lang === 'en' ? 'ar' : 'en';
+      document.querySelectorAll('[data-en]').forEach(el => {
+        el.textContent = el.dataset[lang];
+      });
+      document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      document.documentElement.lang = lang;
+      document.body.classList.toggle('rtl', lang === 'ar');
+      toggle.textContent = lang === 'en' ? 'عربي' : 'English';
+    });
+  </script>
+</body>
+</html>
